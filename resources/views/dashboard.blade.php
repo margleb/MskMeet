@@ -24,7 +24,7 @@
                             </a>
                         </h1>
                         <p class="text-grey-darker text-sm">
-                            12.12.2022 14:00
+                            {{ $event->start_event }}
                         </p>
                     </header>
 
@@ -33,7 +33,7 @@
                             Встечаемся на ВДНХ у памятника "Рабочей и Колхознице" и знакомимся...
                         </p>
                         <p class="text-grey-darker text-sm">
-                            Кол-во участников: 50 <br> Девушек - 20 <br> Парней - 30
+                            Кол-во участников: {{ count($event->users) }} <br> Девушек - {{ count($event->users()->where('sex', 'female')->get()) }} <br> Парней - {{ count($event->users()->where('sex', 'male')->get()) }}
                         </p>
                     </div>
 
@@ -41,8 +41,8 @@
                         <form method="post" action="{{ route('submitEvent')  }}">
                             @csrf
                             <input type="hidden" name="event_id" value="{{ $event->id }}">
-                            <button class="@if($event->users->contains(\Auth::id()) )bg-blue-500 @else bg-red-500 @endif hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                                @if($event->users->contains(\Auth::id()))
+                            <button class="@if(!$event->users->contains(\Auth::id()) )bg-blue-500 @else bg-red-500 @endif hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                @if(!$event->users->contains(\Auth::id()))
                                     Иду на встречу
                                 @else
                                     Я передумал
