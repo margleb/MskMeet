@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            'location_id' => 1
+            'start_event' => Carbon::today()->addDays(rand(0, 179))->addSeconds(rand(0, 86400))
         ];
     }
 }
