@@ -6,7 +6,7 @@
             </a>
         </x-slot>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
             @csrf
 
             <!-- Name -->
@@ -44,6 +44,16 @@
                                 name="password_confirmation" required />
 
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            </div>
+
+                <!-- Avatar -->
+            <div class="mt-4">
+                <x-input-label for="avatar" :value="__('Avatar (optional)')" />
+
+                <x-text-input id="avatar" class="block mt-1 w-full"
+                              type="file"
+                              name="avatar" required />
+
             </div>
 
             <div class="flex items-center justify-end mt-4">

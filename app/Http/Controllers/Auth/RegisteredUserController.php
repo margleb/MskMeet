@@ -45,6 +45,11 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        // проверка на наличие аватара
+        if(isset($request->avatar)) {
+            $user->addMediaFromRequest('avatar')->toMediaCollection('avatars');
+        }
+
         event(new Registered($user));
 
         Auth::login($user);
