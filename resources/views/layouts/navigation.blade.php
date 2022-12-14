@@ -23,7 +23,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <img src="{{ Auth::user()->getMedia('avatars')->first()->getUrl('preview') }}">
+                            <img class="object-center object-cover rounded-full h-36 w-36 mr-2" src="{{ Auth::user()->getMedia('avatars')->first()->getUrl('preview') }}">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">

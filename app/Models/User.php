@@ -60,7 +60,7 @@ class User extends Authenticatable implements HasMedia
     {
         $this
             ->addMediaConversion('preview')
-            ->fit(Manipulations::FIT_CROP, 60, 60)
+            ->fit(Manipulations::FIT_CROP, 40, 40)
             ->nonQueued();
     }
 
