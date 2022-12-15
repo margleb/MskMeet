@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
+            $table->string('address');
             $table->dateTime('start_event');
             $table->foreignIdFor(\App\Models\Location::class);
             $table->timestamps();

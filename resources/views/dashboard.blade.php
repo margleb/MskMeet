@@ -14,13 +14,13 @@
                 <article class="overflow-hidden rounded-lg shadow-lg">
 
                     <a href="#">
-                        <img alt="Placeholder" class="block h-auto w-full" src="images/vdnh.jpg">
+                        <img alt="Placeholder" class="block h-auto w-full" src="{{ $event->location->image }}">
                     </a>
 
                     <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                         <h1 class="text-lg">
                             <a class="no-underline hover:underline text-black" href="#">
-                                Встреча на ВДНХ
+                                {{ $event->location->title }}
                             </a>
                         </h1>
                         <p class="text-grey-darker text-sm">
@@ -33,7 +33,7 @@
                             Встечаемся на ВДНХ у памятника "Рабочей и Колхознице" и знакомимся...
                         </p>
                         <p class="text-grey-darker text-sm">
-                            Кол-во участников: {{ count($event->users) }} <br> Девушек - {{ count($event->users()->where('sex', 'female')->get()) }} <br> Парней - {{ count($event->users()->where('sex', 'male')->get()) }}
+                            Кол-во участников: {{ count($event->users) }} <br> Девушек - {{ count($event->users()->where('gender', 'female')->get()) }} <br> Парней - {{ count($event->users()->where('gender', 'male')->get()) }}
                         </p>
                     </div>
 

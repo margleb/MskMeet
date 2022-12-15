@@ -78,12 +78,12 @@
                 <x-datepicker datepicker-format="yyyy-mm-dd" name="birthDate" />
             </div>
 
-            <!-- Sex -->
+            <!-- gender -->
             <div class="mt-4">
-                <x-input-label for="sex" :value="__('Sex')" />
+                <x-input-label for="gender" :value="__('Gender')" />
 
-                <x-radio checked type="radio" id="male" name="sex" value="male" label="Мужской"  mb="mb-4"/>
-                <x-radio type="radio" id="female" name="sex" value="female" label="Женский" />
+                <x-radio checked type="radio" id="male" name="gender" value="male" label="Мужской"  mb="mb-4"/>
+                <x-radio type="radio" id="female" name="gender" value="female" label="Женский" />
             </div>
 
             <!-- Avatar -->

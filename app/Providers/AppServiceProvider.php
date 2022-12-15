@@ -24,10 +24,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // сервис по созданию рандомных поль-лей
         Http::macro('RandomUser', function () {
             return Http::withHeaders([
                 'content-type' => 'application/json',
             ])->baseUrl('https://randomuser.me/');
+        });
+
+        // сервис по историческим местам
+        Http::macro('OpenTripMap', function () {
+            return Http::withHeaders([
+                'content-type' => 'application/json',
+            ])->baseUrl('https://api.opentripmap.com');
         });
     }
 }
