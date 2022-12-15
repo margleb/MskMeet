@@ -63,9 +63,10 @@ class User extends Authenticatable implements HasMedia
     public function registerMediaConversions(Media $media = null): void
     {
         $this
-            ->addMediaConversion('preview')
-            ->fit(Manipulations::FIT_CROP, 40, 40)
-            ->nonQueued();
+            ->addMediaConversion('thumb')
+            ->width(50)
+            ->height(50)
+            ->sharpen(10);
     }
 
 }
