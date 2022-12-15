@@ -52,6 +52,17 @@
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
 
+            <div class="mt-4">
+                <x-input-label for="phone" :value="__('Phone number')" />
+
+                <x-text-input id="phone" class="block mt-1 w-full"
+                              type="text"
+                              name="phone"
+                              required />
+
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            </div>
+
             <!-- Secret Key -->
             <div class="mt-4">
                 <x-input-label for="password_confirmation" :value="__('Secret Key')" />
@@ -64,15 +75,15 @@
             <div class="mt-4">
                 <x-input-label for="password_confirmation" :value="__('BirthDate')" />
 
-                <x-datepicker />
+                <x-datepicker datepicker-format="yyyy-mm-dd" name="birthDate" />
             </div>
 
             <!-- Sex -->
             <div class="mt-4">
                 <x-input-label for="sex" :value="__('Sex')" />
 
-                <x-radio type="radio" id="male" name="sex" label="Мужской"  mb="mb-4"/>
-                <x-radio type="radio" id="female" name="sex" label="Женский" />
+                <x-radio checked type="radio" id="male" name="sex" value="male" label="Мужской"  mb="mb-4"/>
+                <x-radio type="radio" id="female" name="sex" value="female" label="Женский" />
             </div>
 
             <!-- Avatar -->
