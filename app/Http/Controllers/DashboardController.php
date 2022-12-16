@@ -15,18 +15,4 @@ class DashboardController extends Controller
         return view('dashboard', ['events' => Event::all()]);
    }
 
-   // подтверждаем готовность отправки на мероприятие
-   public function submitEvent(Request $request) {
-
-
-
-       $userId = Auth::user()->id;
-       $user = User::find($userId);
-       $eventId = (int) $request->event_id;
-
-       $user->events()->toggle($eventId);
-
-       return redirect()->back();
-
-   }
 }

@@ -30,7 +30,7 @@ class User extends Authenticatable implements HasMedia
         'secretKey',
         'birthDate',
         'phone',
-        'sex',
+        'gender',
         'avatar'
     ];
 
