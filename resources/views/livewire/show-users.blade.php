@@ -20,7 +20,7 @@
             <!-- Кол-во пользователей на страницу -->
             <label for="large" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">Кол-во пользователей</label>
 
-            <select id="default" wire:model="perPage" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <select id="default" wire:model="per" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="20">20</option>
                 <option value="50">50</option>
                 <option value="100">100</option>
@@ -29,7 +29,7 @@
             <!-- фильтры -->
             <label for="large" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">Фильтр</label>
 
-            <select id="default" wire:model="orderBy" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <select id="default" wire:model="order" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="ASC">сначала старые</option>
                 <option value="DESC">сначала новые</option>
             </select>
@@ -37,7 +37,7 @@
             <!-- возраст -->
             <label for="large" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">Возраст</label>
 
-            <select id="default" wire:model="rangeAge" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <select id="default" wire:model="range" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected value="all">Все</option>
                 <option value="18-21">18 - 21</option>
                 <option value="21-26">21 - 26</option>

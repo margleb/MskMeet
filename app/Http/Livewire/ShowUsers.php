@@ -13,18 +13,18 @@ class ShowUsers extends Component
     use WithPagination;
 
     // кол-во пользователей на страницу
-    public int $perPage = 20;
+    public int $per = 20;
 
     // сортировка вывода на страницу
-    public string $orderBy = 'asc';
+    public string $order = 'asc';
 
     // сортировка  по полу
     public string $gender = 'all';
 
     // дата
-    public string $rangeAge = 'all';
+    public string $range = 'all';
 
-    protected $queryString = ['perPage', 'gender', 'rangeAge'];
+    protected $queryString = ['per', 'gender', 'range'];
 
     public function updating()
     {
@@ -43,17 +43,17 @@ class ShowUsers extends Component
         }
 
         // возраст
-        if($this->rangeAge != 'all') {
+        if($this->range != 'all') {
 
-            $rangeAge = explode('-', $this->rangeAge);
+            $rangeAge = explode('-', $this->range);
             $rangeDates = [Carbon::now()->subYears($rangeAge[1]), Carbon::now()->subYears($rangeAge[0])];
 
             $userQuery->whereBetween('birthDate', [$rangeDates]);
         }
 
         return view('livewire.show-users', ['users' => $userQuery
-            ->orderBy('created_at', $this->orderBy)
-            ->paginate($this->perPage)]);
+            ->orderBy('created_at', $this->order)
+            ->paginate($this->per)]);
     }
 
 }
