@@ -6,11 +6,7 @@
             <!-- пользователи -->
             <div class="grid grid-cols-6 gap-4">
                 @foreach($users as $user)
-                    <div>
-                        <img class="object-center object-cover rounded-full h-50 w-50 mr-2" src="{{ $user->getMedia('avatars')->first()->getUrl() }}">
-                        <p class="text-center" >{{ $user->name }}</p>
-                        <p class="text-center" >{{ count($user->events()->get()) }}</p>
-                    </div>
+                        <livewire:show-user :user="$user" :key="$user->id" />
                 @endforeach
             </div>
             <div class="mt-10">
@@ -34,18 +30,19 @@
             <label for="large" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">Фильтр</label>
 
             <select id="default" wire:model="orderBy" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option value="ASC">сначала новые</option>
-                <option value="DESC">сначала старые</option>
+                <option value="ASC">сначала старые</option>
+                <option value="DESC">сначала новые</option>
             </select>
 
             <!-- возраст -->
             <label for="large" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">Возраст</label>
 
-            <select id="default" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>18 - 21</option>
-                <option value="CA">21 - 26</option>
-                <option value="FR">26 - 35</option>
-                <option value="DE">старше 36</option>
+            <select id="default" wire:model="rangeAge" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected value="all">Все</option>
+                <option value="18-21">18 - 21</option>
+                <option value="21-26">21 - 26</option>
+                <option value="26-35">26 - 35</option>
+                <!-- <option >старше 36</option> -->
             </select>
 
             <!-- пол -->
