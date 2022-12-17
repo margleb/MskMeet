@@ -12,7 +12,7 @@ class DashboardController extends Controller
    // выводит все доступные мероприятия
    public function index() {
 
-        return view('dashboard', ['events' => Event::all()]);
+        return view('dashboard', ['users' => User::all()]);
    }
 
 }
