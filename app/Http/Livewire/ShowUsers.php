@@ -8,11 +8,36 @@ use Livewire\Component;
 class ShowUsers extends Component
 {
 
-    public $perPage = 20;
+    // кол-во пользователей на страницу
+    public int $perPage = 20;
+
+    // сортировка вывода на страницу
+    public string $orderBy = 'asc';
+
+    // сортировка  по полу
+    public string $gender = 'all';
+
+    // возраст
+    public string $age = 'all';
+
 
     public function render()
     {
-        return view('livewire.show-users', ['users' => User::paginate($this->perPage)]);
+
+
+        $userQuery = User::query();
+
+        if($this->gender != 'all') {
+            $userQuery->where('gender', $this->gender);
+        }
+
+        if($this->age != 'all') {
+
+        }
+
+        return view('livewire.show-users', ['users' => $userQuery
+            ->orderBy('created_at', $this->orderBy)
+            ->paginate($this->perPage)]);
     }
 
 }
